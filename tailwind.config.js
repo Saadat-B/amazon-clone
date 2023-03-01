@@ -8,8 +8,16 @@ module.exports = {
     // Or if using `src` directory:
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: false,
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        amazon_blue: {
+          light: "#232F3E",
+          DEFAULT: "#131921",
+        },
+      },
+    },
   },
   plugins: [require("@tailwindcss/line-clamp")],
 };

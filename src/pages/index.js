@@ -1,65 +1,41 @@
 import Head from "next/head";
-import styles from "../styles/Home.module.css";
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Amazon 2.0</title>
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+      {/* ---- TO BEGIN, delete this section and GET CODING!!! ---- */}
+      <center className="grid place-items-center mt-10">
+        <h1 className="text-5xl">Lets build Amazon 2.0</h1>
+        <h2>This is your starter template!</h2>
+        <br />
+        <h3 className="font-bold">
+          We will be using Next.js / Tailwind CSS / Redux / Firebase / NextAuth
+        </h3>
+        <i>(Dont worry, its all setup and ready to use!)</i>
+        <h4>Get Ready, Get Set, GO!!!</h4>
 
-        <p className={styles.description}>
-          Get started by editing{" "}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+        <h5 className="mb-10">#PAPAFAM</h5>
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
+        <div className="bg-red-300 p-10">
+          <p className="font-bold">
+            Dont forget to register for the challenge here!
+          </p>
+          <p>👇👇👇</p>
           <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
+            href="https://www.papareact.com/secret-challenge"
+            className="text-blue-400 underline p-3 font-bold"
           >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
+            CLICK HERE TO REGISTER NOW
           </a>
         </div>
-      </main>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
+        <p className="mt-24">Built with 💙 by Sonny Sangha (PAPA REACT)</p>
+      </center>
+      {/* ---- ---- */}
     </div>
   );
 }

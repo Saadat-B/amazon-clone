@@ -1,16 +1,22 @@
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { StarIcon } from "@heroicons/react/24/solid";
+import Currency from "react-currency-formatter";
 
 const MAX_RATING = 5;
 const MIN_RATING = 1;
 
 const Product = ({ id, title, price, description, category, image }) => {
-  const [rating] = useState(
-    Math.floor(Math.random() * (MAX_RATING - MIN_RATING + 1)) + MIN_RATING
-  );
+  const [rating, setRating] = useState(1);
 
-  const [hasPrime] = useState(Math.random() < 0.5);
+  const [hasPrime, setHasPrime] = useState(true);
+
+  useEffect(() => {
+    setRating(
+      Math.floor(Math.random() * (MAX_RATING - MIN_RATING + 1)) + MIN_RATING
+    );
+    setHasPrime(Math.random() < 0.5);
+  }, []);
 
   return (
     <div>
@@ -24,9 +30,11 @@ const Product = ({ id, title, price, description, category, image }) => {
             <StarIcon className="h-5" />
           ))}
       </div>
-      {/* {hasPrime && <p>Has prime delivery</p>} */}
+
       <p>{description}</p>
-      <div></div>
+      <div>
+        <Currency quantity={price} currency="INR" decimal="" />
+      </div>
     </div>
   );
 };

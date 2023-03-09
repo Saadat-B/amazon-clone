@@ -1,5 +1,7 @@
 import { StarIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
+import { useDispatch } from "react-redux";
+import { addToBasket, removeFromBasket } from "../slices/basketSlice";
 
 const CheckoutProduct = ({
   id,
@@ -11,6 +13,25 @@ const CheckoutProduct = ({
   image,
   hasPrime,
 }) => {
+  const dispatch = useDispatch();
+  const addItemToBasket = () => {
+    const product = {
+      id,
+      title,
+      price,
+      description,
+      category,
+      image,
+      rating,
+      hasPrime,
+    };
+
+    // Push item into redux
+    dispatch(addToBasket(product));
+  };
+  const removeItemFromBasket = () => {
+    dispatch(removeFromBasket({ id }));
+  };
   return (
     <div className="grid grid-cols-5">
       <Image src={image} height={200} width={200} objectFit="contain" />
@@ -26,7 +47,7 @@ const CheckoutProduct = ({
             ))}
         </div>
         <p className="text-xs mt-2 my-2 line-clamp-3">{description}</p>
-        <p>{"$" + price}</p>
+        <p>{"$" + Math.ceil(price)}</p>
         {hasPrime && (
           <div className="flex items-center space-x-2">
             <img
@@ -41,8 +62,12 @@ const CheckoutProduct = ({
       </div>
       {/* Right add/remove buttons */}
       <div className="flex flex-col space-y-2 my-auto justify-self-end">
-        <button className="button">Add to Basket</button>
-        <button className="button">Remove from Basket</button>
+        <button className="button" onClick={addItemToBasket}>
+          Add to Basket
+        </button>
+        <button className="button" onClick={removeItemFromBasket}>
+          Remove from Basket
+        </button>
       </div>
     </div>
   );
